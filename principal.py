@@ -13,12 +13,12 @@
 ##############################################################################
 """These are the interfaces for the common fields.
 
-$Id: principal.py,v 1.3 2003/02/11 15:59:55 sidnei Exp $
+$Id: principal.py,v 1.4 2003/02/12 02:17:31 seanb Exp $
 """
 
 from zope.exceptions import NotFoundError
 from zope.component import getService
-from zope.component.servicenames import Authentication
+from zope.app.services.servicenames import Authentication
 
 def checkPrincipal(context, principal_id):
 
