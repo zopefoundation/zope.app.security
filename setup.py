@@ -62,7 +62,6 @@ setup(name='zope.app.security',
       extras_require=dict(
           test=[
               'zope.app.testing',
-              'zope.testing',
           ]),
       install_requires = [
           'setuptools',
