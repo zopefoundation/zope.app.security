@@ -12,9 +12,8 @@
 #
 ##############################################################################
 """Login and Logout screens
-
-$Id$
 """
+from __future__ import absolute_import
 import urllib
 
 from zope import component
@@ -64,10 +63,12 @@ class HTTPAuthenticationLogin(object):
                 self.request.principal.id, self.request)
             return self.failed()
         else:
-            if nextURL is None:
-                return self.confirmation()
-            else:
-                self.request.response.redirect(nextURL)
+            return self._confirm(nextURL)
+
+    def _confirm(self, nextURL):
+        if nextURL is None:
+            return self.confirmation()
+        self.request.response.redirect(nextURL)
 
 
 class HTTPBasicAuthenticationLogin(HTTPAuthenticationLogin):
@@ -87,10 +88,7 @@ class HTTPBasicAuthenticationLogin(HTTPAuthenticationLogin):
             self.request.unauthorized('basic realm="Zope"')
             return self.failed()
         else:
-            if nextURL is None:
-                return self.confirmation()
-            else:
-                self.request.response.redirect(nextURL)
+            return self._confirm(nextURL)
 
 
 class HTTPAuthenticationLogout(object):

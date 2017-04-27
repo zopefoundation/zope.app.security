@@ -13,16 +13,6 @@
 ##############################################################################
 """Backward-compatibility import for security policy constants to allow
 unpickling of old pickled security settings.
-
-$Id$
 """
-try:
-    from zope.securitypolicy.settings import Allow, Deny, Unset
-except ImportError:
-    import logging
-    logging.error('Allow, Unset and Deny constants are now '
-                  'moved from zope.app.security.settings to '
-                  'zope.securitypolicy.settings and you don\'t '
-                  'seem to have it installed. This is very rare '
-                  'case and you should manually install '
-                  'the ``zope.securitypolicy`` package.')
+
+from zope.securitypolicy.settings import Allow, Deny, Unset

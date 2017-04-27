@@ -27,6 +27,40 @@ it provides the user with a link to 'Login':
   >>> LoginLogout(None, request)()
   u'<a href="@@login.html?nextURL=http%3A//127.0.0.1">[Login]</a>'
 
+Attempting to login at this point will fail because nothing has
+authorized the principal yet:
+
+  >>> from zope.app.security.browser.auth import HTTPAuthenticationLogin
+  >>> login = HTTPAuthenticationLogin()
+  >>> login.request = request
+  >>> login.context = None
+  >>> login.failed = lambda: 'Login Failed'
+  >>> login.login()
+  'Login Failed'
+
+There is a failsafe that will attempt to ask for HTTP Basic authentication:
+
+  >>> from zope.app.security.browser.auth import HTTPBasicAuthenticationLogin
+  >>> basic_login = HTTPBasicAuthenticationLogin()
+  >>> basic_login.request = request
+  >>> basic_login.failed = lambda: 'Basic Login Failed'
+  >>> basic_login.login()
+  'Basic Login Failed'
+  >>> request._response.getHeader('WWW-Authenticate', literal=True)
+  'basic realm="Zope"'
+  >>> request._response.getStatus()
+  401
+
+Of course, an unauthorized principal is confirmed to be logged out:
+
+  >>> from zope.app.security.browser.auth import HTTPAuthenticationLogout
+  >>> logout = HTTPAuthenticationLogout(None, request)
+  >>> logout.logout(nextURL="bye.html")
+  'bye.html'
+  >>> logout.confirmation = lambda: 'Good Bye'
+  >>> logout.logout()
+  'Good Bye'
+
 Logout, however, behaves differently. Not all authentication protocols (i.e.
 credentials extractors/challengers) support 'logout'. Furthermore, we don't
 know how an admin may have configured Zope's authentication. Our solution is
@@ -52,6 +86,27 @@ In this case, the default behavior is to return None for the snippet:
   >>> print LoginLogout(None, request)()
   None
 
+And at this time, login will correctly direct us to the next URL, or
+to the confirmation page:
+
+  >>> login = HTTPAuthenticationLogin()
+  >>> login.request = request
+  >>> login.context = None
+  >>> login.login(nextURL='good.html')
+  >>> login.confirmation = lambda: "You Passed"
+  >>> login.login()
+  'You Passed'
+
+Likewise for HTTP Basic authentication:
+
+  >>> login = HTTPBasicAuthenticationLogin()
+  >>> login.request = request
+  >>> login.context = None
+  >>> login.confirmation = lambda: "You Passed"
+  >>> login.login()
+  'You Passed'
+
+
 To show a logout prompt, an admin must register a marker adapter that provides
 the interface:
 
@@ -69,3 +124,10 @@ prompt:
 
   >>> LoginLogout(None, request)()
   u'<a href="@@logout.html?nextURL=http%3A//127.0.0.1">[Logout]</a>'
+
+And we can log this principal out, passing a URL to redirect to:
+
+  >>> logout = HTTPAuthenticationLogout(None, request)
+  >>> logout.redirect = lambda: 'You have been redirected.'
+  >>> logout.logout(nextURL="loggedout.html")
+  'You have been redirected.'
