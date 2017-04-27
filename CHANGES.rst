@@ -2,7 +2,7 @@
 CHANGES
 =======
 
-4.0.0 (unreleased)
+4.0.0 (2017-04-27)
 ------------------
 
 - Removed use of 'zope.testing.doctestunit' in favor of stdlib's doctest.
