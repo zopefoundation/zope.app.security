@@ -13,7 +13,6 @@
 ##############################################################################
 """Backward-compatibility import for the checkPrincipal function
 
-$Id$
 """
 
 # BBB

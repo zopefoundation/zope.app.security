@@ -13,7 +13,6 @@
 ##############################################################################
 """Backward compatibility for the IFTPCredentials -> ILoginPassword adapter
 
-$Id$
 """
 
 # BBB

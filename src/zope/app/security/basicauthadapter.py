@@ -12,8 +12,6 @@
 #
 ##############################################################################
 """Backward compatibility for the IHTTPCredentials -> ILoginPassword adapter
-
-$Id$
 """
 
 # BBB

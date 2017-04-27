@@ -13,7 +13,6 @@
 ##############################################################################
 """Backward compatibility imports for zope.app.localpermission.
 
-$Id$
 """
 __docformat__ = 'restructuredtext'
 

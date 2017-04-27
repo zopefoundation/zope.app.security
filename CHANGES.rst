@@ -2,10 +2,14 @@
 CHANGES
 =======
 
-3.7.6 (unreleased)
+4.0.0 (unreleased)
 ------------------
 
 - Removed use of 'zope.testing.doctestunit' in favor of stdlib's doctest.
+
+- Removed use of ``zope.app.testing`` in favor of ``zope.app.wsgi``.
+
+- Add support for PyPy, Python 3.4, 3.5 and 3.6.
 
 
 3.7.5 (2010-01-08)
@@ -75,7 +79,7 @@ CHANGES
 
 - Cleanup dependencies after refactorings. Also, don't depend on
   zope.app.testing for tests anymore.
-  
+
 - Update package's description to point about refactorings done.
 
 3.6.2 (2009-03-10)

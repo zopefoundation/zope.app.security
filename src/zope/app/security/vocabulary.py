@@ -13,7 +13,6 @@
 ##############################################################################
 """Backward-compatibility imports for PrincipalSource and permission vocabularies.
 
-$Id$
 """
 
 # BBB

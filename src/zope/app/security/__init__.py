@@ -12,8 +12,6 @@
 #
 ##############################################################################
 """Zope Application-specific Security code
-
-$Id$
 """
 # BBB: the code was moved to zope.authentication
 from zope.authentication.logout import LogoutSupported, NoLogout

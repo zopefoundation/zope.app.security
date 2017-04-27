@@ -29,16 +29,22 @@
                        ndiff restore unified_diff" />
   </module>
 
-  <module module="fpformat">
+  <module module="fpformat" zcml:condition="installed fpformat">
     <allow attributes="fix sci NotANumber" />
   </module>
 
-  <module module="StringIO">
+  <module module="StringIO" zcml:condition="installed StringIO">
     <allow attributes="StringIO" />
   </module>
 
-  <module module="cStringIO">
-    <allow attributes="StringIO InputType OutputType" />
+  <configure zcml:condition="installed cStringIO">
+	<module module="cStringIO">
+	  <allow attributes="StringIO InputType OutputType" />
+	</module>
+  </configure>
+
+  <module module="io">
+    <allow attributes="StringIO" />
   </module>
 
   <module module="textwrap">
@@ -119,7 +125,16 @@
                        islice izip repeat starmap takewhile" />
   </module>
 
-  <module module="ConfigParser">
+  <module module="ConfigParser" zcml:condition="installed ConfigParser">
+    <allow attributes="RawConfigParser ConfigParser SafeConfigParser
+                       NoSectionError DuplicateSectionError NoOptionError
+                       InterpolationError InterpolationDepthError
+                       InterpolationMissingOptionError
+                       InterpolationSyntaxError MissingSectionHeaderError
+                       ParsingError MAX_INTERPOLATION_DEPTH" />
+  </module>
+
+  <module module="configparser" zcml:condition="installed configparser">
     <allow attributes="RawConfigParser ConfigParser SafeConfigParser
                        NoSectionError DuplicateSectionError NoOptionError
                        InterpolationError InterpolationDepthError
@@ -194,7 +209,7 @@
                        url2pathname URLopener FancyURLopener" />
   </module>
 
-  <module module="urllib2">
+  <module module="urllib2" zcml:condition="installed urllib2">
     <allow attributes="urlopen install_opener build_opener URLError HTTPError
                        GopherError Request OpenerDirector BaseHandler
                        HTTPDefaultErrorHandler HTTPRedirectHandler
@@ -207,7 +222,25 @@
                        CacheFTPHandler GopherHAndler UnknownHandler" />
   </module>
 
-  <module module="httplib">
+  <module module="urllib.request" zcml:condition="installed urllib.request">
+	<allow attributes="urlopen install_opener build_opener" />
+  </module>
+
+  <module module="urllib.error" zcml:condition="installed urllib.error">
+	<allow attributes="URLError HTTPError" />
+  </module>
+
+
+  <module module="httplib" zcml:condition="installed httplib">
+    <allow attributes="HTTP_PORT HTTPS_PORT HTTPConnection HTTPSConnection
+                       HTTPResponse HTTPException NotConnected InvalidURL
+                       UnknownProtocol UnknownTransferEncoding
+                       UnimplementedFileMode IncompleteRead
+                       ImproperConnectionState CannotSendRequest
+                       CannotSendHeader ResponseNotReady BadStatusLine" />
+  </module>
+
+  <module module="http.client" zcml:condition="installed http.client">
     <allow attributes="HTTP_PORT HTTPS_PORT HTTPConnection HTTPSConnection
                        HTTPResponse HTTPException NotConnected InvalidURL
                        UnknownProtocol UnknownTransferEncoding
@@ -253,18 +286,34 @@
     <allow attributes="Telnet" />
   </module>
 
-  <module module="urlparse">
+  <module module="urlparse" zcml:condition="installed urlparse">
     <allow attributes="urlparse urlunparse urlsplit urlunsplit urljoin
                        urldefrag" />
   </module>
 
-  <module module="Cookie">
+
+  <module module="urllib.parse" zcml:condition="installed urllib.parse">
+    <allow attributes="urlparse urlunparse urlsplit urlunsplit urljoin
+                       urldefrag" />
+  </module>
+
+  <module module="Cookie" zcml:condition="installed Cookie">
     <allow attributes="CookieError BaseCookie SimpleCookie" />
   </module>
 
-  <module module="xmlrpclib">
+
+  <module module="http.cookies" zcml:condition="installed http.cookies">
+    <allow attributes="CookieError BaseCookie SimpleCookie" />
+  </module>
+
+  <module module="xmlrpclib" zcml:condition="installed xmlrpclib">
     <allow attributes="ServerProxy boolean binary" />
   </module>
+
+  <module module="xmlrpc.client" zcml:condition="installed xmlrpc.client">
+    <allow attributes="ServerProxy boolean Binary" />
+  </module>
+
 
   <!-- 12. Internet Data Handling -->
 
@@ -290,7 +339,7 @@
     <allow attributes="guess_type guess_all_extensions guess_extension" />
   </module>
 
-  <module module="rfc822">
+  <module module="rfc822" zcml:condition="installed rfc822">
     <allow attributes="Message AddressList quote unquote parseaddr
                        dump_address_pair parsedate parsedate_tz mktime_tz" />
   </module>
@@ -326,7 +375,11 @@
     <allow attributes="netrc NetrcParseError" />
   </module>
 
-  <module module="robotparser">
+  <module module="robotparser" zcml:condition="installed robotparser">
+    <allow attributes="RobotFileParser" />
+  </module>
+
+  <module module="urllib.robotparser" zcml:condition="installed urllib.robotparser">
     <allow attributes="RobotFileParser" />
   </module>
 
@@ -339,19 +392,27 @@
 
   <!-- 13. Structured Markup Processing Tools -->
 
-  <module module="HTMLParser">
+  <module module="HTMLParser" zcml:condition="installed HTMLParser">
     <allow attributes="HTMLParser" />
   </module>
 
-  <module module="sgmllib">
+  <module module="html.parser" zcml:condition="installed html.parser">
+    <allow attributes="HTMLParser" />
+  </module>
+
+  <module module="sgmllib" zcml:condition="installed sgmllib">
     <allow attributes="SGMLParser" />
   </module>
 
-  <module module="htmllib">
+  <module module="htmllib" zcml:condition="installed htmllib">
     <allow attributes="HTMLParser" />
   </module>
 
-  <module module="htmlentitydefs">
+  <module module="htmlentitydefs" zcml:condition="installed htmlentitydefs">
+    <allow attributes="entitydefs name2codepoint codepoint2name" />
+  </module>
+
+  <module module="html.entities" zcml:condition="installed html.entities">
     <allow attributes="entitydefs name2codepoint codepoint2name" />
   </module>
 

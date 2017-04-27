@@ -12,8 +12,6 @@
 #
 ##############################################################################
 """Backward-compatibility import for base ILoginPassword implementation.
-
-$Id$
 """
 
 # BBB

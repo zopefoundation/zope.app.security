@@ -12,8 +12,6 @@
 #
 ##############################################################################
 """Backward compatibility: code was moved to zope.security.protectclass.
-
-$Id$
 """
 from zope.security.checker import defineChecker, getCheckerForInstancesOf
 from zope.security.checker import Checker, CheckerPublic
