@@ -12,8 +12,6 @@
 #
 ##############################################################################
 """Backward-compatibility imports for authentication interfaces
-
-$Id$
 """
 
 # BBB

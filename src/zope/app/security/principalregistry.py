@@ -13,7 +13,6 @@
 ##############################################################################
 """Backward-compatibility imports for the global principal registry
 
-$Id$
 """
 
 # BBB: these were moved to zope.principalregistry

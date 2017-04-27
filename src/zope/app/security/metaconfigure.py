@@ -13,7 +13,6 @@
 ##############################################################################
 """Backward-compatibility imports for the global principal registry directives
 
-$Id$
 """
 from zope.principalregistry.metaconfigure import (
     principal,

@@ -24,8 +24,8 @@ it provides the user with a link to 'Login':
   >>> from zope.publisher.browser import TestRequest
   >>> request = TestRequest()
   >>> request.setPrincipal(anonymous)
-  >>> LoginLogout(None, request)()
-  u'<a href="@@login.html?nextURL=http%3A//127.0.0.1">[Login]</a>'
+  >>> print(LoginLogout(None, request)())
+  <a href="@@login.html?nextURL=http%3A//127.0.0.1">[Login]</a>
 
 Attempting to login at this point will fail because nothing has
 authorized the principal yet:
@@ -71,9 +71,9 @@ unauthenticated principal. To illustrate, we'll first setup a request with an
 unauthenticated principal:
 
   >>> from zope.security.interfaces import IPrincipal
-  >>> from zope.interface import implements
-  >>> class Bob:
-  ...     implements(IPrincipal)
+  >>> from zope.interface import implementer
+  >>> @implementer(IPrincipal)
+  ... class Bob:
   ...     id = 'bob'
   ...     title = description = ''
   >>> bob = Bob()
@@ -83,7 +83,7 @@ unauthenticated principal:
 
 In this case, the default behavior is to return None for the snippet:
 
-  >>> print LoginLogout(None, request)()
+  >>> print(LoginLogout(None, request)())
   None
 
 And at this time, login will correctly direct us to the next URL, or
@@ -122,8 +122,8 @@ adapter that can be registered for this:
 Now when we use LoginLogout with an unauthenticated principal, we get a logout
 prompt:
 
-  >>> LoginLogout(None, request)()
-  u'<a href="@@logout.html?nextURL=http%3A//127.0.0.1">[Logout]</a>'
+  >>> print(LoginLogout(None, request)())
+  <a href="@@logout.html?nextURL=http%3A//127.0.0.1">[Logout]</a>
 
 And we can log this principal out, passing a URL to redirect to:
 

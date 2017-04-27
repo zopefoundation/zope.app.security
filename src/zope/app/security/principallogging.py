@@ -13,7 +13,6 @@
 ##############################################################################
 """Backward-compatibility import for PrincipalLogging
 
-$Id$
 """
 
 # BBB: this was moved to zope.publisher.

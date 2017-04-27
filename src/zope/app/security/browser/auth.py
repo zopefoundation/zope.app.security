@@ -13,8 +13,11 @@
 ##############################################################################
 """Login and Logout screens
 """
-from __future__ import absolute_import
-import urllib
+
+try:
+    from urllib.parse import quote
+except ImportError:
+    from urllib import quote
 
 from zope import component
 from zope.app.pagetemplate import ViewPageTemplateFile
@@ -23,7 +26,7 @@ from zope.authentication.interfaces import IAuthentication
 from zope.authentication.interfaces import IUnauthenticatedPrincipal
 from zope.authentication.interfaces import ILogout, ILogoutSupported
 from zope.i18n import translate
-from zope.interface import implements
+from zope.interface import implementer
 
 from zope.app.security.i18n import _
 
@@ -41,16 +44,14 @@ class AuthUtilitySearchView(object):
         return self.template(title=self.searchTitle, name=name)
 
     def results(self, name):
-        if not (name+'.search' in self.request):
+        if (name + '.search') not in self.request:
             return None
-        searchstring = self.request[name+'.searchstring']
+        searchstring = self.request[name + '.searchstring']
         return [principal.id
                 for principal in self.context.getPrincipals(searchstring)]
 
-
+@implementer(ILogin)
 class HTTPAuthenticationLogin(object):
-
-    implements(ILogin)
 
     confirmation = ViewPageTemplateFile('login.pt')
 
@@ -81,6 +82,7 @@ class HTTPBasicAuthenticationLogin(HTTPAuthenticationLogin):
     registry, which typically contains an adminitrator principal, uses basic
     auth credentials to authenticate.
     """
+
     def login(self, nextURL=None):
         # we don't want to keep challenging if we're authenticated
         if IUnauthenticatedPrincipal.providedBy(self.request.principal):
@@ -90,12 +92,10 @@ class HTTPBasicAuthenticationLogin(HTTPAuthenticationLogin):
         else:
             return self._confirm(nextURL)
 
-
+@implementer(ILogout)
 class HTTPAuthenticationLogout(object):
     """Since HTTP Authentication really does not know about logout, we are
     simply challenging the client again."""
-
-    implements(ILogout)
 
     confirmation = ViewPageTemplateFile('logout.pt')
 
@@ -126,13 +126,14 @@ class LoginLogout(object):
     def __call__(self):
         if IUnauthenticatedPrincipal.providedBy(self.request.principal):
             return u'<a href="@@login.html?nextURL=%s">%s</a>' % (
-                urllib.quote(self.request.getURL()),
+                quote(self.request.getURL()),
                 translate(_('[Login]'), context=self.request,
                           default='[Login]'))
-        elif ILogoutSupported(self.request, None) is not None:
+
+        if ILogoutSupported(self.request, None) is not None:
             return u'<a href="@@logout.html?nextURL=%s">%s</a>' % (
-                urllib.quote(self.request.getURL()),
+                quote(self.request.getURL()),
                 translate(_('[Logout]'), context=self.request,
                           default='[Logout]'))
-        else:
-            return None
+
+        return None

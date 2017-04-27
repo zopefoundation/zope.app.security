@@ -28,7 +28,7 @@ Now that we have our queriable, we create the view for it:
 
 This allows us to render a search form.
 
-  >>> print view.render('test') # doctest: +NORMALIZE_WHITESPACE
+  >>> print(view.render('test')) # doctest: +NORMALIZE_WHITESPACE
   <h4>principals.zcml</h4>
   <div class="row">
   <div class="label">

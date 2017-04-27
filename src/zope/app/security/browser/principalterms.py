@@ -13,7 +13,6 @@
 ##############################################################################
 """Backward-compatibility imports for principal terms
 
-$Id$
 """
 
 # BBB
