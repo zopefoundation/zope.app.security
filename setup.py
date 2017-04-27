@@ -78,7 +78,7 @@ setup(name='zope.app.security',
       extras_require={
           'test': test_requires,
       },
-      test_requires=test_requires,
+      tests_require=test_requires,
       install_requires=[
           'setuptools',
           'zope.app.localpermission',
