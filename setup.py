@@ -17,7 +17,7 @@
 # Zope Toolkit policies as described by this documentation.
 ##############################################################################
 
-version = '4.0.1.dev0'
+version = '5.0.0.dev0'
 
 import os
 from setuptools import setup, find_packages
@@ -60,15 +60,15 @@ setup(name='zope.app.security',
           'Programming Language :: Python :: 2',
           'Programming Language :: Python :: 2.7',
           'Programming Language :: Python :: 3',
-          'Programming Language :: Python :: 3.4',
           'Programming Language :: Python :: 3.5',
           'Programming Language :: Python :: 3.6',
+          'Programming Language :: Python :: 3.7',
           'Programming Language :: Python :: Implementation :: CPython',
           'Programming Language :: Python :: Implementation :: PyPy',
           'Natural Language :: English',
           'Operating System :: OS Independent',
           'Topic :: Internet :: WWW/HTTP',
-          'Framework :: Zope :: 3'
+          'Framework :: Zope :: 3',
       ],
       url='http://github.com/zopefoundation/zope.app.security',
       license='ZPL 2.1',
