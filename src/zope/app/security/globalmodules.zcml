@@ -492,8 +492,8 @@
 
   <!-- The following package has been deprecated in Python 3.4.
        Let's use a similar trick of detecting whether the package
-       "statistics" is available, as it was added in 3.4. -->
-  <module module="formatter" zcml:condition="not-installed statistics">
+       "asyncio" is available, as it was added in 3.4. -->
+  <module module="formatter" zcml:condition="not-installed asyncio">
     <allow attributes="AS_IS AbstractFormatter AbstractWriter DumbWriter
                        NullFormatter NullWriter" />
   </module>
