@@ -9,6 +9,12 @@ CHANGES
 
 - Drop support for Python 3.4.
 
+- Drop security declarations for the deprecated ``formatter`` standard library
+  module from globalmodules.zcml.
+
+  Note that globalmodules.zcml should be avoided.  It's better to make
+  declarations for only what you actually need to use.
+
 
 4.0.0 (2017-04-27)
 ------------------

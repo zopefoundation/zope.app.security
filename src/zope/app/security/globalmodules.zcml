@@ -317,11 +317,6 @@
 
   <!-- 12. Internet Data Handling -->
 
-  <module module="formatter">
-    <allow attributes="AS_IS AbstractFormatter AbstractWriter DumbWriter
-                       NullFormatter NullWriter" />
-  </module>
-
   <module module="email">
     <allow attributes="message_from_file message_from_string" />
   </module>
