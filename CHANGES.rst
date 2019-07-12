@@ -2,7 +2,7 @@
 CHANGES
 =======
 
-5.0.0 (unreleased)
+5.0.0 (2019-07-12)
 ------------------
 
 - Add support for Python 3.7.
