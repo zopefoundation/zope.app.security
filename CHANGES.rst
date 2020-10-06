@@ -7,6 +7,8 @@ CHANGES
 
 - Add support for Python 3.8 and 3.9.
 
+- Drop support for Python 3.5.
+
 - Drop security declarations for the deprecated ``binhex`` standard library
   module from globalmodules.zcml.
 
