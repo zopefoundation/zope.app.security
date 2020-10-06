@@ -5,6 +5,8 @@ CHANGES
 5.0.1 (unreleased)
 ------------------
 
+- Add support for Python 3.8 and 3.9.
+
 - Drop security declarations for the deprecated ``binhex`` standard library
   module from globalmodules.zcml.
 
