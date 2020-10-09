@@ -350,10 +350,6 @@
                        Incomplete" />
   </module>
 
-  <module module="binhex">
-    <allow attributes="binhex hexbin Error" />
-  </module>
-
   <module module="quopri">
     <allow attributes="decode encode decodestring encodestring" />
   </module>

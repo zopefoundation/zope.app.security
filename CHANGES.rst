@@ -5,7 +5,11 @@ CHANGES
 5.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Drop security declarations for the deprecated ``binhex`` standard library
+  module from globalmodules.zcml.
+
+  Note that globalmodules.zcml should be avoided.  It's better to make
+  declarations for only what you actually need to use.
 
 
 5.0.0 (2019-07-12)
