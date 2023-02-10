@@ -17,14 +17,19 @@
 # Zope Toolkit policies as described by this documentation.
 ##############################################################################
 
+import os
+
+from setuptools import find_packages
+from setuptools import setup
+
+
 version = '5.1.1.dev0'
 
-import os
-from setuptools import setup, find_packages
 
 def read(*rnames):
     with open(os.path.join(os.path.dirname(__file__), *rnames)) as f:
         return f.read()
+
 
 test_requires = [
     'zope.app.wsgi',
@@ -49,7 +54,7 @@ setup(name='zope.app.security',
           read('src', 'zope', 'app', 'security', 'browser', 'loginlogout.rst')
           + '\n\n' +
           read('CHANGES.rst')
-          ),
+      ),
       keywords="zope security authentication principal ftp http",
       classifiers=[
           'Development Status :: 5 - Production/Stable',
@@ -97,4 +102,4 @@ setup(name='zope.app.security',
       ],
       include_package_data=True,
       zip_safe=False,
-)
+      )

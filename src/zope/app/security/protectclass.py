@@ -13,9 +13,10 @@
 ##############################################################################
 """Backward compatibility: code was moved to zope.security.protectclass.
 """
-from zope.security.checker import defineChecker, getCheckerForInstancesOf
-from zope.security.checker import Checker, CheckerPublic
-
-from zope.security.protectclass import (protectName,
-                                        protectSetAttribute,
-                                        protectLikeUnto)
+from zope.security.checker import Checker
+from zope.security.checker import CheckerPublic
+from zope.security.checker import defineChecker
+from zope.security.checker import getCheckerForInstancesOf
+from zope.security.protectclass import protectLikeUnto
+from zope.security.protectclass import protectName
+from zope.security.protectclass import protectSetAttribute

@@ -15,8 +15,9 @@
 
 $Id$
 """
-import unittest
 import doctest
+import unittest
+
 
 def test_bbb_imports():
     """
@@ -81,9 +82,10 @@ def test_bbb_imports():
       >>> old.everybodyGroup is new.everybodyGroup
       True
 
-    """
+    """  # noqa: E501 line too long
+
 
 def test_suite():
     return unittest.TestSuite((
         doctest.DocTestSuite(),
-        ))
+    ))

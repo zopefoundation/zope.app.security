@@ -16,11 +16,13 @@
 """
 
 # BBB: these were moved to zope.principalregistry
-from zope.principalregistry.metadirectives import (
-        IBasePrincipalDirective,
-        IDefinePrincipalDirective,
-        IDefineUnauthenticatedPrincipalDirective,
-        IDefineUnauthenticatedGroupDirective,
-        IDefineAuthenticatedGroupDirective,
-        IDefineEverybodyGroupDirective,
-    )
+from zope.principalregistry.metadirectives import IBasePrincipalDirective
+from zope.principalregistry.metadirectives import \
+    IDefineAuthenticatedGroupDirective
+from zope.principalregistry.metadirectives import \
+    IDefineEverybodyGroupDirective
+from zope.principalregistry.metadirectives import IDefinePrincipalDirective
+from zope.principalregistry.metadirectives import \
+    IDefineUnauthenticatedGroupDirective
+from zope.principalregistry.metadirectives import \
+    IDefineUnauthenticatedPrincipalDirective

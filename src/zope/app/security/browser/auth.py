@@ -19,15 +19,16 @@ try:
 except ImportError:
     from urllib import quote
 
-from zope import component
 from zope.app.pagetemplate import ViewPageTemplateFile
 from zope.app.publisher.interfaces.http import ILogin
 from zope.authentication.interfaces import IAuthentication
+from zope.authentication.interfaces import ILogout
+from zope.authentication.interfaces import ILogoutSupported
 from zope.authentication.interfaces import IUnauthenticatedPrincipal
-from zope.authentication.interfaces import ILogout, ILogoutSupported
 from zope.i18n import translate
 from zope.interface import implementer
 
+from zope import component
 from zope.app.security.i18n import _
 
 
@@ -49,6 +50,7 @@ class AuthUtilitySearchView(object):
         searchstring = self.request[name + '.searchstring']
         return [principal.id
                 for principal in self.context.getPrincipals(searchstring)]
+
 
 @implementer(ILogin)
 class HTTPAuthenticationLogin(object):
@@ -91,6 +93,7 @@ class HTTPBasicAuthenticationLogin(HTTPAuthenticationLogin):
             return self.failed()
         else:
             return self._confirm(nextURL)
+
 
 @implementer(ILogout)
 class HTTPAuthenticationLogout(object):

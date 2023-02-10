@@ -15,4 +15,6 @@
 unpickling of old pickled security settings.
 """
 
-from zope.securitypolicy.settings import Allow, Deny, Unset
+from zope.securitypolicy.settings import Allow
+from zope.securitypolicy.settings import Deny
+from zope.securitypolicy.settings import Unset

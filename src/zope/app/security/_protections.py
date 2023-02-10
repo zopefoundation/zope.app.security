@@ -15,5 +15,6 @@
 Deprecated and unused.
 """
 
+
 def protect():
-    pass # this function is not needed anymore
+    pass  # this function is not needed anymore

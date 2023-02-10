@@ -15,30 +15,34 @@
 
 """
 __docformat__ = "reStructuredText"
-import unittest
 import doctest
+import unittest
 
 from zope.app.security.tests.test_doctests import PermissionsLayer
+
 
 class TestBWCImports(unittest.TestCase):
 
     def test_principalterms_imports(self):
-          import zope.app.security.browser.principalterms as old
-          import zope.authentication.principal as new
+        import zope.authentication.principal as new
 
-          self.assertIs(old.PrincipalTerms, new.PrincipalTerms)
-          self.assertIs(old.Term, new.PrincipalTerm)
+        import zope.app.security.browser.principalterms as old
+
+        self.assertIs(old.PrincipalTerms, new.PrincipalTerms)
+        self.assertIs(old.Term, new.PrincipalTerm)
 
     def test_settings_imports(self):
-        import zope.app.security.settings as old
         import zope.securitypolicy.settings as new
+
+        import zope.app.security.settings as old
 
         self.assertIs(old.Allow, new.Allow)
 
     def test_protectclass_imports(self):
-        import zope.app.security.protectclass as old
         import zope.security.checker as new1
         import zope.security.protectclass as new2
+
+        import zope.app.security.protectclass as old
 
         self.assertIs(old.Checker, new1.Checker)
         self.assertIs(old.protectName, new2.protectName)
@@ -47,6 +51,7 @@ class TestBWCImports(unittest.TestCase):
         import zope.app.security._protections as new
 
         new.protect()
+
 
 def test_suite():
     def make_doctest(path):

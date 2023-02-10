@@ -14,18 +14,18 @@
 """Backward-compatibility imports for authentication interfaces
 """
 
+from zope.authentication.interfaces import IAuthenticatedGroup
+from zope.authentication.interfaces import IAuthentication
+from zope.authentication.interfaces import IEveryoneGroup
+from zope.authentication.interfaces import IFallbackUnauthenticatedPrincipal
+from zope.authentication.interfaces import ILoginPassword
+from zope.authentication.interfaces import ILogout
+from zope.authentication.interfaces import ILogoutSupported
+from zope.authentication.interfaces import IPrincipalSource
+from zope.authentication.interfaces import IUnauthenticatedGroup
+from zope.authentication.interfaces import IUnauthenticatedPrincipal
+from zope.authentication.interfaces import PrincipalLookupError
 # BBB
-from zope.security.interfaces import IPrincipal, IPermission, IGroup
-from zope.authentication.interfaces import (
-    PrincipalLookupError,
-    IUnauthenticatedPrincipal,
-    IFallbackUnauthenticatedPrincipal,
-    IUnauthenticatedGroup,
-    IAuthenticatedGroup,
-    IEveryoneGroup,
-    IAuthentication,
-    ILoginPassword,
-    IPrincipalSource,
-    ILogout,
-    ILogoutSupported,
-    )
+from zope.security.interfaces import IGroup
+from zope.security.interfaces import IPermission
+from zope.security.interfaces import IPrincipal
