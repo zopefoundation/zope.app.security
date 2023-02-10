@@ -14,10 +14,7 @@
 """Login and Logout screens
 """
 
-try:
-    from urllib.parse import quote
-except ImportError:
-    from urllib import quote
+import urllib.parse
 
 from zope.app.pagetemplate import ViewPageTemplateFile
 from zope.app.publisher.interfaces.http import ILogin
@@ -32,10 +29,10 @@ from zope import component
 from zope.app.security.i18n import _
 
 
-class AuthUtilitySearchView(object):
+class AuthUtilitySearchView:
 
     template = ViewPageTemplateFile('authutilitysearchview.pt')
-    searchTitle = u'principals.zcml'
+    searchTitle = 'principals.zcml'
 
     def __init__(self, context, request):
         self.context = context
@@ -53,7 +50,7 @@ class AuthUtilitySearchView(object):
 
 
 @implementer(ILogin)
-class HTTPAuthenticationLogin(object):
+class HTTPAuthenticationLogin:
 
     confirmation = ViewPageTemplateFile('login.pt')
 
@@ -96,7 +93,7 @@ class HTTPBasicAuthenticationLogin(HTTPAuthenticationLogin):
 
 
 @implementer(ILogout)
-class HTTPAuthenticationLogout(object):
+class HTTPAuthenticationLogout:
     """Since HTTP Authentication really does not know about logout, we are
     simply challenging the client again."""
 
@@ -120,7 +117,7 @@ class HTTPAuthenticationLogout(object):
             return self.request.response.redirect(nextURL)
 
 
-class LoginLogout(object):
+class LoginLogout:
 
     def __init__(self, context, request):
         self.context = context
@@ -128,14 +125,14 @@ class LoginLogout(object):
 
     def __call__(self):
         if IUnauthenticatedPrincipal.providedBy(self.request.principal):
-            return u'<a href="@@login.html?nextURL=%s">%s</a>' % (
-                quote(self.request.getURL()),
+            return '<a href="@@login.html?nextURL={}">{}</a>'.format(
+                urllib.parse.quote(self.request.getURL()),
                 translate(_('[Login]'), context=self.request,
                           default='[Login]'))
 
         if ILogoutSupported(self.request, None) is not None:
-            return u'<a href="@@logout.html?nextURL=%s">%s</a>' % (
-                quote(self.request.getURL()),
+            return '<a href="@@logout.html?nextURL={}">{}</a>'.format(
+                urllib.parse.quote(self.request.getURL()),
                 translate(_('[Logout]'), context=self.request,
                           default='[Logout]'))
 
