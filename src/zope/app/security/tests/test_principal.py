@@ -15,8 +15,9 @@
 
 $Id$
 """
-import unittest
 import doctest
+import unittest
+
 
 def test_bbb_imports():
     """
@@ -27,7 +28,8 @@ def test_bbb_imports():
 
     """
 
+
 def test_suite():
     return unittest.TestSuite((
         doctest.DocTestSuite(),
-        ))
+    ))

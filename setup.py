@@ -12,19 +12,24 @@
 #
 ##############################################################################
 # This package is developed by the Zope Toolkit project, documented here:
-# http://docs.zope.org/zopetoolkit
+# https://zopetoolkit.readthedocs.io/
 # When developing and releasing this package, please follow the documented
 # Zope Toolkit policies as described by this documentation.
 ##############################################################################
 
-version = '5.1.1.dev0'
-
 import os
-from setuptools import setup, find_packages
+
+from setuptools import find_packages
+from setuptools import setup
+
+
+version = '6.0.dev0'
+
 
 def read(*rnames):
     with open(os.path.join(os.path.dirname(__file__), *rnames)) as f:
         return f.read()
+
 
 test_requires = [
     'zope.app.wsgi',
@@ -35,7 +40,7 @@ test_requires = [
 setup(name='zope.app.security',
       version=version,
       author='Zope Foundation and Contributors',
-      author_email='zope-dev@zope.org',
+      author_email='zope-dev@zope.dev',
       description='ZMI Views For Zope3 Security Components',
       long_description=(
           read('README.rst')
@@ -49,7 +54,7 @@ setup(name='zope.app.security',
           read('src', 'zope', 'app', 'security', 'browser', 'loginlogout.rst')
           + '\n\n' +
           read('CHANGES.rst')
-          ),
+      ),
       keywords="zope security authentication principal ftp http",
       classifiers=[
           'Development Status :: 5 - Production/Stable',
@@ -57,13 +62,12 @@ setup(name='zope.app.security',
           'Intended Audience :: Developers',
           'License :: OSI Approved :: Zope Public License',
           'Programming Language :: Python',
-          'Programming Language :: Python :: 2',
-          'Programming Language :: Python :: 2.7',
           'Programming Language :: Python :: 3',
-          'Programming Language :: Python :: 3.6',
           'Programming Language :: Python :: 3.7',
           'Programming Language :: Python :: 3.8',
           'Programming Language :: Python :: 3.9',
+          'Programming Language :: Python :: 3.10',
+          'Programming Language :: Python :: 3.11',
           'Programming Language :: Python :: Implementation :: CPython',
           'Programming Language :: Python :: Implementation :: PyPy',
           'Natural Language :: English',
@@ -76,6 +80,7 @@ setup(name='zope.app.security',
       packages=find_packages('src'),
       package_dir={'': 'src'},
       namespace_packages=['zope', 'zope.app'],
+      python_requires='>=3.7',
       extras_require={
           'test': test_requires,
       },
@@ -97,4 +102,4 @@ setup(name='zope.app.security',
       ],
       include_package_data=True,
       zip_safe=False,
-)
+      )

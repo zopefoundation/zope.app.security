@@ -14,10 +14,8 @@
 """Backward-compatibility imports for the global principal registry directives
 
 """
-from zope.principalregistry.metaconfigure import (
-    principal,
-    unauthenticatedPrincipal,
-    unauthenticatedGroup,
-    authenticatedGroup,
-    everybodyGroup,
-    )
+from zope.principalregistry.metaconfigure import authenticatedGroup
+from zope.principalregistry.metaconfigure import everybodyGroup
+from zope.principalregistry.metaconfigure import principal
+from zope.principalregistry.metaconfigure import unauthenticatedGroup
+from zope.principalregistry.metaconfigure import unauthenticatedPrincipal

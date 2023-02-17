@@ -14,4 +14,5 @@
 """Zope Application-specific Security code
 """
 # BBB: the code was moved to zope.authentication
-from zope.authentication.logout import LogoutSupported, NoLogout
+from zope.authentication.logout import LogoutSupported
+from zope.authentication.logout import NoLogout

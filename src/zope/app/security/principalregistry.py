@@ -16,17 +16,16 @@
 """
 
 # BBB: these were moved to zope.principalregistry
-from zope.principalregistry.principalregistry import (
-    DuplicateLogin,
-    DuplicateId,
-    PrincipalRegistry,
-    principalRegistry,
-    PrincipalBase,
-    Group,
-    Principal,
-    UnauthenticatedPrincipal,
-    fallback_unauthenticated_principal,
-    UnauthenticatedGroup,
-    AuthenticatedGroup,
-    EverybodyGroup,
-    )
+from zope.principalregistry.principalregistry import AuthenticatedGroup
+from zope.principalregistry.principalregistry import DuplicateId
+from zope.principalregistry.principalregistry import DuplicateLogin
+from zope.principalregistry.principalregistry import EverybodyGroup
+from zope.principalregistry.principalregistry import Group
+from zope.principalregistry.principalregistry import Principal
+from zope.principalregistry.principalregistry import PrincipalBase
+from zope.principalregistry.principalregistry import PrincipalRegistry
+from zope.principalregistry.principalregistry import UnauthenticatedGroup
+from zope.principalregistry.principalregistry import UnauthenticatedPrincipal
+from zope.principalregistry.principalregistry import \
+    fallback_unauthenticated_principal
+from zope.principalregistry.principalregistry import principalRegistry

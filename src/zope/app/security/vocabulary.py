@@ -11,11 +11,12 @@
 # FOR A PARTICULAR PURPOSE.
 #
 ##############################################################################
-"""Backward-compatibility imports for PrincipalSource and permission vocabularies.
+"""Backward-compatibility imports for PrincipalSource and permission
+vocabularies.
 
 """
 
-# BBB
-from zope.security.permission import PermissionsVocabulary
-from zope.security.permission import PermissionIdsVocabulary
 from zope.authentication.principal import PrincipalSource
+# BBB
+from zope.security.permission import PermissionIdsVocabulary
+from zope.security.permission import PermissionsVocabulary

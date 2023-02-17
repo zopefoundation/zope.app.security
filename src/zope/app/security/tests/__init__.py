@@ -11,9 +11,6 @@
 # FOR A PARTICULAR PURPOSE.
 #
 ##############################################################################
-"""Security Tests
+"""Security Tests."""
 
-$Id$
-"""
-
-from zope.security.testing import addCheckerPublic # BBB
+from zope.security.testing import addCheckerPublic  # BBB

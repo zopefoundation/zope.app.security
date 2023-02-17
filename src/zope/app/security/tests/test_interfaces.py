@@ -11,12 +11,10 @@
 # FOR A PARTICULAR PURPOSE.
 #
 ##############################################################################
-"""Test importability of BBB interfaces
-
-$Id$
-"""
-import unittest
+"""Test importability of BBB interfaces."""
 import doctest
+import unittest
+
 
 def test_bbb_imports():
     """
@@ -58,9 +56,10 @@ def test_bbb_imports():
       >>> old.IGroup is new.IGroup
       True
 
-    """
+    """  # noqa: E501 line too long
+
 
 def test_suite():
     return unittest.TestSuite((
         doctest.DocTestSuite(),
-        ))
+    ))

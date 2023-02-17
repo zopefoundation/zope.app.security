@@ -17,9 +17,7 @@
 __docformat__ = 'restructuredtext'
 
 # BBB: the functionality was moved to zope.app.localpermission
-from zope.app.localpermission.permission import (
-    NULL_ID,
-    LocalPermission,
-    setIdOnActivation,
-    unsetIdOnDeactivation,
-    )
+from zope.app.localpermission.permission import NULL_ID
+from zope.app.localpermission.permission import LocalPermission
+from zope.app.localpermission.permission import setIdOnActivation
+from zope.app.localpermission.permission import unsetIdOnDeactivation
