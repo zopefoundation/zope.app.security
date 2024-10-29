@@ -24,7 +24,7 @@ For these configurations this should not make a difference.
 Because several UserList methods use this isinstance check before
 accessing the data attribute we will simply try to get the data
 attribute from a proxied example.
-    
+
     >>> import persistent.list
     >>> import zope.security.tests.test_proxy
     >>> import zope.security.proxy
@@ -37,15 +37,15 @@ attribute from a proxied example.
     >>> proxied_list.data
     []
 
-We'll do the same with a persistent dict, which follows the same
+We'll do the same with a persistent mapping, which follows the same
 behavior pattern with UserDict.
 
-    >>> import persistent.dict
-    >>> persistent_dict = persistent.dict.PersistentDict()
+    >>> import persistent.mapping
+    >>> persistent_mapping = persistent.mapping.PersistentMapping()
 
-    >>> proxied_dict = zope.security.proxy.ProxyFactory(
-    ...     persistent_dict)
+    >>> proxied_mapping = zope.security.proxy.ProxyFactory(
+    ...     persistent_mapping)
 
-    >>> proxied_dict.data
+    >>> proxied_mapping.data
     {}
-    
+

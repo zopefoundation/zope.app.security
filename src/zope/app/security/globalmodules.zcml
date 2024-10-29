@@ -254,25 +254,12 @@
                        error_proto" />
   </module>
 
-  <!-- This package has been deprecated in Python 2.5; let's use a cheap way
-       of detecting Python 2.4 by checking whether the package "hashlib" is
-       not available, which has been added only in Python 2.5. -->
-  <module module="gopherlib"
-          zcml:condition="not-installed hashlib">
-    <allow attributes="send_selection send_query" />
-  </module>
-
   <module module="poplib">
     <allow attributes="POP3 error_proto" />
   </module>
 
   <module module="imaplib">
     <allow attributes="IMAP4" />
-  </module>
-
-  <module module="nntplib">
-    <allow attributes="NNTP NNTPError NNTPReplyError NNTPTemporaryError
-                       NNTPPermanentError NNTPProtocolError NNTPDataError" />
   </module>
 
   <module module="smtplib">
@@ -282,17 +269,7 @@
                        SMTPHeloError" />
   </module>
 
-  <module module="telnetlib">
-    <allow attributes="Telnet" />
-  </module>
-
-  <module module="urlparse" zcml:condition="installed urlparse">
-    <allow attributes="urlparse urlunparse urlsplit urlunsplit urljoin
-                       urldefrag" />
-  </module>
-
-
-  <module module="urllib.parse" zcml:condition="installed urllib.parse">
+  <module module="urllib.parse">
     <allow attributes="urlparse urlunparse urlsplit urlunsplit urljoin
                        urldefrag" />
   </module>
@@ -319,10 +296,6 @@
 
   <module module="email">
     <allow attributes="message_from_file message_from_string" />
-  </module>
-
-  <module module="mailcap">
-    <allow attributes="findmatch getcaps" />
   </module>
 
   <module module="mailbox">
@@ -352,14 +325,6 @@
 
   <module module="quopri">
     <allow attributes="decode encode decodestring encodestring" />
-  </module>
-
-  <module module="uu">
-    <allow attributes="encode decode Error" />
-  </module>
-
-  <module module="xdrlib">
-    <allow attributes="Packer Unpacker" />
   </module>
 
   <module module="netrc">

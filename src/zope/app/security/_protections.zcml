@@ -114,7 +114,7 @@
    <allow attributes="__getitem__ __getslice__ __len__ __iter__
                       __contains__ index count data" />
 </class>
-<class class="persistent.dict.PersistentDict">
+<class class="persistent.mapping.PersistentMapping">
    <allow attributes="__getitem__ __len__ __iter__ get has_key
                       __copy__ keys values items iterkeys iteritems
                       itervalues __contains__ data" />
