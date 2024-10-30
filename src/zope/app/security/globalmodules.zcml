@@ -29,20 +29,6 @@
                        ndiff restore unified_diff" />
   </module>
 
-  <module module="fpformat" zcml:condition="installed fpformat">
-    <allow attributes="fix sci NotANumber" />
-  </module>
-
-  <module module="StringIO" zcml:condition="installed StringIO">
-    <allow attributes="StringIO" />
-  </module>
-
-  <configure zcml:condition="installed cStringIO">
-	<module module="cStringIO">
-	  <allow attributes="StringIO InputType OutputType" />
-	</module>
-  </configure>
-
   <module module="io">
     <allow attributes="StringIO" />
   </module>
@@ -125,16 +111,7 @@
                        islice izip repeat starmap takewhile" />
   </module>
 
-  <module module="ConfigParser" zcml:condition="installed ConfigParser">
-    <allow attributes="RawConfigParser ConfigParser SafeConfigParser
-                       NoSectionError DuplicateSectionError NoOptionError
-                       InterpolationError InterpolationDepthError
-                       InterpolationMissingOptionError
-                       InterpolationSyntaxError MissingSectionHeaderError
-                       ParsingError MAX_INTERPOLATION_DEPTH" />
-  </module>
-
-  <module module="configparser" zcml:condition="installed configparser">
+  <module module="configparser">
     <allow attributes="RawConfigParser ConfigParser SafeConfigParser
                        NoSectionError DuplicateSectionError NoOptionError
                        InterpolationError InterpolationDepthError
@@ -209,38 +186,15 @@
                        url2pathname URLopener FancyURLopener" />
   </module>
 
-  <module module="urllib2" zcml:condition="installed urllib2">
-    <allow attributes="urlopen install_opener build_opener URLError HTTPError
-                       GopherError Request OpenerDirector BaseHandler
-                       HTTPDefaultErrorHandler HTTPRedirectHandler
-                       ProxyHandler HTTPPasswordMgr
-                       HTTPPasswordMgrWithDefaultRealm
-                       AbstractBasicAuthHandler HTTPBasicAuthHandler
-                       ProxyBasicAuthHandler AbstractDigestAuthHandler
-                       HTTPDigestAuthHandler ProxyDigestAuthHandler
-                       HTTPHandler HTTPSHandler FileHandler FTPHandler
-                       CacheFTPHandler GopherHAndler UnknownHandler" />
-  </module>
-
-  <module module="urllib.request" zcml:condition="installed urllib.request">
+  <module module="urllib.request">
 	<allow attributes="urlopen install_opener build_opener" />
   </module>
 
-  <module module="urllib.error" zcml:condition="installed urllib.error">
+  <module module="urllib.error">
 	<allow attributes="URLError HTTPError" />
   </module>
 
-
-  <module module="httplib" zcml:condition="installed httplib">
-    <allow attributes="HTTP_PORT HTTPS_PORT HTTPConnection HTTPSConnection
-                       HTTPResponse HTTPException NotConnected InvalidURL
-                       UnknownProtocol UnknownTransferEncoding
-                       UnimplementedFileMode IncompleteRead
-                       ImproperConnectionState CannotSendRequest
-                       CannotSendHeader ResponseNotReady BadStatusLine" />
-  </module>
-
-  <module module="http.client" zcml:condition="installed http.client">
+  <module module="http.client">
     <allow attributes="HTTP_PORT HTTPS_PORT HTTPConnection HTTPSConnection
                        HTTPResponse HTTPException NotConnected InvalidURL
                        UnknownProtocol UnknownTransferEncoding
@@ -274,20 +228,11 @@
                        urldefrag" />
   </module>
 
-  <module module="Cookie" zcml:condition="installed Cookie">
+  <module module="http.cookies">
     <allow attributes="CookieError BaseCookie SimpleCookie" />
   </module>
 
-
-  <module module="http.cookies" zcml:condition="installed http.cookies">
-    <allow attributes="CookieError BaseCookie SimpleCookie" />
-  </module>
-
-  <module module="xmlrpclib" zcml:condition="installed xmlrpclib">
-    <allow attributes="ServerProxy boolean binary" />
-  </module>
-
-  <module module="xmlrpc.client" zcml:condition="installed xmlrpc.client">
+  <module module="xmlrpc.client">
     <allow attributes="ServerProxy boolean Binary" />
   </module>
 
@@ -305,11 +250,6 @@
 
   <module module="mimetypes">
     <allow attributes="guess_type guess_all_extensions guess_extension" />
-  </module>
-
-  <module module="rfc822" zcml:condition="installed rfc822">
-    <allow attributes="Message AddressList quote unquote parseaddr
-                       dump_address_pair parsedate parsedate_tz mktime_tz" />
   </module>
 
   <module module="base64">
@@ -331,11 +271,7 @@
     <allow attributes="netrc NetrcParseError" />
   </module>
 
-  <module module="robotparser" zcml:condition="installed robotparser">
-    <allow attributes="RobotFileParser" />
-  </module>
-
-  <module module="urllib.robotparser" zcml:condition="installed urllib.robotparser">
+  <module module="urllib.robotparser">
     <allow attributes="RobotFileParser" />
   </module>
 
@@ -348,27 +284,11 @@
 
   <!-- 13. Structured Markup Processing Tools -->
 
-  <module module="HTMLParser" zcml:condition="installed HTMLParser">
+  <module module="html.parser">
     <allow attributes="HTMLParser" />
   </module>
 
-  <module module="html.parser" zcml:condition="installed html.parser">
-    <allow attributes="HTMLParser" />
-  </module>
-
-  <module module="sgmllib" zcml:condition="installed sgmllib">
-    <allow attributes="SGMLParser" />
-  </module>
-
-  <module module="htmllib" zcml:condition="installed htmllib">
-    <allow attributes="HTMLParser" />
-  </module>
-
-  <module module="htmlentitydefs" zcml:condition="installed htmlentitydefs">
-    <allow attributes="entitydefs name2codepoint codepoint2name" />
-  </module>
-
-  <module module="html.entities" zcml:condition="installed html.entities">
+  <module module="html.entities">
     <allow attributes="entitydefs name2codepoint codepoint2name" />
   </module>
 
@@ -421,42 +341,6 @@
 
   <module module="hmac">
     <allow attributes="new" />
-  </module>
-
-  <!-- These packages has been deprecated in Python 2.6 in favor of hashlib;
-       let's use a cheap way of detecting Python<=2.5 by checking whether the
-       package "json" is not available, which has been added only in Python 2.6. -->
-  <module module="md5"
-          zcml:condition="not-installed json">
-    <allow attributes="new digest_size" />
-  </module>
-
-  <module module="sha"
-          zcml:condition="not-installed json">
-    <allow attributes="new blocksize digest_size" />
-  </module>
-
-  <!-- The following packages have been deprecated in Python 2.6 also.
-       We'll use the same trick. -->
-
-  <configure zcml:condition="not-installed json">
-    <module module="sets">
-      <allow attributes="Set ImmutableSet" />
-    </module>
-    <module module="mhlib">
-      <allow attributes="MH Folder Message" />
-    </module>
-    <module module="multifile">
-      <allow attributes="MultiFile" />
-    </module>
-  </configure>
-
-  <!-- The following package has been deprecated in Python 3.4.
-       Let's use a similar trick of detecting whether the package
-       "asyncio" is available, as it was added in 3.4. -->
-  <module module="formatter" zcml:condition="not-installed asyncio">
-    <allow attributes="AS_IS AbstractFormatter AbstractWriter DumbWriter
-                       NullFormatter NullWriter" />
   </module>
 
 </configure>
