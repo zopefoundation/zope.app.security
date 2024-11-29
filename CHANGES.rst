@@ -2,10 +2,20 @@
 CHANGES
 =======
 
-6.1 (unreleased)
+7.0 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Fix deprecations by removing support for:
+
+  - ``nntplib``
+  - ``persistent.dict.PersistentDict`` - replaced by
+    ``persistent.mapping.PersistentMapping``.
+  - ``telnetlib``
+  - ``mailcap``
+  - ``uu``
+  - ``xdrlib``
+
+- Drop support for Python 2.7 leftovers.
 
 
 6.0 (2023-02-17)
