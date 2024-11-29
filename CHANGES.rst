@@ -5,6 +5,8 @@ CHANGES
 7.0 (unreleased)
 ----------------
 
+- Drop support for Python 3.7.
+
 - Fix deprecations by removing support for:
 
   - ``nntplib``
