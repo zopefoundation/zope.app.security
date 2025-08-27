@@ -5,7 +5,7 @@ CHANGES
 7.1 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Drop support for Python 3.8.
 
 
 7.0 (2024-11-29)
