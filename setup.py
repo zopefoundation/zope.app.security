@@ -19,11 +19,10 @@
 
 import os
 
-from setuptools import find_packages
 from setuptools import setup
 
 
-version = '7.1.dev0'
+version = '8.0.dev0'
 
 
 def read(*rnames):
@@ -33,7 +32,7 @@ def read(*rnames):
 
 test_requires = [
     'zope.app.wsgi',
-    'zope.testrunner',
+    'zope.testrunner >= 6.4',
     'webtest',
 ]
 
@@ -77,9 +76,6 @@ setup(name='zope.app.security',
       ],
       url='http://github.com/zopefoundation/zope.app.security',
       license='ZPL-2.1',
-      packages=find_packages('src'),
-      package_dir={'': 'src'},
-      namespace_packages=['zope', 'zope.app'],
       python_requires='>=3.9',
       extras_require={
           'test': test_requires,
