@@ -22,7 +22,7 @@ import os
 from setuptools import setup
 
 
-version = '8.0.dev0'
+version = '8.0'
 
 
 def read(*rnames):
