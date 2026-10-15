@@ -48,4 +48,3 @@ behavior pattern with UserDict.
 
     >>> proxied_mapping.data
     {}
-
