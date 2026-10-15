@@ -22,7 +22,7 @@
   </head>
   <body>
   <div metal:fill-slot="body">
-  
+
      <h1 i18n:translate="">Logout successful!</h1>
 
      <p style="font-size: 200%" i18n:translate="">
